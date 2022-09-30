@@ -50,6 +50,6 @@ stdenv.mkDerivation rec {
     # universal-ctags is preferred over emacs's ctags
     priority = 1;
     mainProgram = "ctags";
-    maintainers = [ maintainers.mimame maintainers.lightquantum ];
+    maintainers = [ maintainers.mimame ];
   };
 }

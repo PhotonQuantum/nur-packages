@@ -14,7 +14,3 @@
 <     description = "A maintained ctags implementation";
 ---
 >     description = "A maintained ctags implementation (with PCRE2 support)";
-53c53
-<     maintainers = [ maintainers.mimame ];
----
->     maintainers = [ maintainers.mimame maintainers.lightquantum ];
