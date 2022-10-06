@@ -49,6 +49,12 @@ workflows:
 
             nix-build ci.nix -A cacheOutputs | cachix push "lightquantum"
         title: Push Cache
+    - script@1:
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            curl -XPOST "https://nur-update.herokuapp.com/update?repo=lightquantum"
+        title: Notify NUR
 meta:
   bitrise.io:
     stack: osx-xcode-14.1.x
