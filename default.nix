@@ -16,4 +16,5 @@
 
   universal-ctags-pcre2 = pkgs.callPackage ./pkgs/universal-ctags-pcre2 { };
   tectonic = pkgs.callPackage ./pkgs/tectonic { };
+  nix-template = (import ./pkgs/nix-template).default;
 }
