@@ -15,10 +15,17 @@ with lib;
     home.activation.wallpapers = lib.hm.dag.entryAfter [ "writeBoundary" ] (mkIf (config.home.wallpapers != null)
       (
         let
-          f = (idx: wallpaper: "tell desktop ${toString idx} to set picture to \"${wallpaper}\" as POSIX file");
-          script = ''
+          set_osa = ''
             tell application "System Events"
-              ${(concatStringsSep "\n" (imap1 f config.home.wallpapers))}
+            set wallpapers to { ${(concatStringsSep "," (map1 (x: ''"${x}"'') config.home.wallpapers))} }
+            	set n_desktop to count of desktop
+            	set n to 0
+            	repeat with wallpaper in wallpapers
+            		set n to n + 1
+            		if n > n_desktop then exit repeat
+            		log "setting " & n & " " & wallpaper
+            		tell desktop n to set picture to wallpaper as POSIX file
+            	end repeat
             end tell
           '';
         in
