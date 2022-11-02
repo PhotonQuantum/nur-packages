@@ -17,7 +17,7 @@ with lib;
         let
           set_osa = ''
             tell application "System Events"
-            set wallpapers to { ${(concatStringsSep "," (map1 (x: ''"${x}"'') config.home.wallpapers))} }
+                set wallpapers to { ${(concatStringsSep "," (map1 (x: ''"${x}"'') config.home.wallpapers))} }
             	set n_desktop to count of desktop
             	set n to 0
             	repeat with wallpaper in wallpapers
